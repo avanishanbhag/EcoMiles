@@ -12,9 +12,22 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
-
+                    .padding()
                 
-                Text("""
+                Text("Track your miles.")
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color("DarkGreen"))
+
+                Text("Grow your impact.")
+                    .multilineTextAlignment(.center)
+                
+                
+                Text("🌿 Welcome to EcoMiles, an app that helps you measure your carbon footprint based on how you travel—empowering you to make greener choices, one mile at a time. 🌿")
+                    .font(.body)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                
+               /* Text("""
                      1. **Track distance** – We record how many kilometers \
                      you travel by car (or any transport mode you pick).\n
                      2. **Apply emission factor** – Each km is multiplied by \
@@ -26,15 +39,16 @@ struct ContentView: View {
                     .font(.body)
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal)
-
+                */
                 
                 NavigationLink(destination: Score()) {
-                    Text("Go to Carbon Score")
-                        .foregroundColor(.white)
+                    Text("Calculate Your Carbon Score")
+                        .foregroundColor(Color.black)
                         .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.green)
+                        .frame(width: 350, height: 70)
+                        .background(Color("box"))
                         .cornerRadius(12)
+                        .shadow(radius: 12)
                 }
                 .padding(.horizontal)
 
