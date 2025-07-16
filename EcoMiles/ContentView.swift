@@ -1,74 +1,70 @@
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View
+{
     @State private var showMenu = false
 
-    var body: some View {
-        NavigationView {
-            VStack(spacing: 24) {
-               
+    var body: some View
+    {
+        NavigationView
+        {
+            ZStack
+            {
+                Color("Alabaster").ignoresSafeArea()
                 
-                Text("EcoMiles")
-                    .font(.largeTitle)
-                    .bold()
-                    .multilineTextAlignment(.center)
-                    .padding()
-                
-                Text("Track your miles.")
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color("DarkGreen"))
-
-                Text("Grow your impact.")
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color("DarkGreen"))
-                
-                
-                Text("🌿 Welcome to EcoMiles, an app that helps you measure your carbon footprint based on how you travel—empowering you to make greener choices, one mile at a time. 🌿")
-                    .font(.body)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                
-               /* Text("""
-                     1. **Track distance** – We record how many kilometers \
-                     you travel by car (or any transport mode you pick).\n
-                     2. **Apply emission factor** – Each km is multiplied by \
-                     0.121 kg CO₂ (average gasoline‑car value). You’ll see a \
-                     different factor if you choose bus, bike, etc.\n
-                     3. **Grow your forest** – The lower today’s emissions, \
-                     the more trees appear in your personal forest scene.
-                     """)
-                    .font(.body)
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal)
-                */
-                
-                NavigationLink(destination: Score()) {
-                    Text("Calculate Your Carbon Score")
-                        .foregroundColor(Color.black)
+                VStack(spacing: 24) {
+                    
+                    Text("EcoMiles")
+                        .font(.largeTitle)
+                        .bold()
+                        .multilineTextAlignment(.center)
                         .padding()
-                        .frame(width: 350, height: 70)
-                        .background(Color("box"))
-                        .cornerRadius(12)
-                        .shadow(radius: 12)
+                        .foregroundColor(Color("DarkGreen"))
+                    
+                    Text("Track your miles.")
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color("DarkGreen"))
+                    
+                    Text("Grow your impact.")
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color("DarkGreen"))
+                    
+                    
+                    Text("🌿 Welcome to EcoMiles, an app that helps you measure your carbon footprint based on how you travel—empowering you to make greener choices, one mile at a time. 🌿")
+                        .font(.body)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                        .foregroundColor(Color("DarkGreen"))
+                    
+                    NavigationLink(destination: Score()) {
+                        Text("Calculate Your Carbon Score")
+                            .foregroundColor(Color("DarkGreen"))
+                            .padding()
+                            .frame(width: 350, height: 70)
+                            .background(Color("box"))
+                            .cornerRadius(12)
+                            .shadow(radius: 12)
+                    }
+                    .padding(.horizontal)
+                    
+                    Spacer()
                 }
-                .padding(.horizontal)
-
-                Spacer()
-            }
-            .padding()
-            .navigationTitle("Welcome")
-            .toolbar {
-                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: { showMenu = true }) {
-                        Image(systemName: "line.3.horizontal")
-                            .imageScale(.large)
+                .padding()
+                .navigationTitle("Welcome")
+                .foregroundColor(Color("DarkGreen"))
+                .toolbar {
+                    
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: { showMenu = true }) {
+                            Image(systemName: "line.3.horizontal")
+                                .imageScale(.large)
+                        }
                     }
                 }
-            }
-            
-            .sheet(isPresented: $showMenu) {
-                MenuView()
+                
+                .sheet(isPresented: $showMenu) {
+                    MenuView()
+                }
             }
         }
     }
