@@ -52,13 +52,14 @@ struct Tips: View {
                     TipItem(
                         tip: "Support policies that promote green transportation options.",
                         source: "UN Environment Programme – Sustainable Transport"
+                        
                     )
                 }
             }
             .padding()
-            .foregroundColor(Color("Olivine"))
+            .foregroundColor(Color("DarkGreen"))
         }
-        .background(Color("DarkGreen").edgesIgnoringSafeArea(.all))
+        .background(Color("Alabaster").edgesIgnoringSafeArea(.all))
     }
 }
 
@@ -73,7 +74,7 @@ struct TipItem: View {
             Text("Source: \(source)")
                 .font(.caption)
                 .italic()
-                .foregroundColor(.white)
+                .foregroundColor(.pakistanGreen)
         }
         .padding(.vertical, 5)
     }
@@ -82,3 +83,4 @@ struct TipItem: View {
 #Preview {
     Tips()
 }
+
