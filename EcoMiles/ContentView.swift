@@ -8,6 +8,7 @@ struct ContentView: View
     {
         NavigationView
         {
+            
             ZStack
             {
                 Color("Alabaster").ignoresSafeArea()
@@ -18,23 +19,18 @@ struct ContentView: View
                         .font(.largeTitle)
                         .bold()
                         .multilineTextAlignment(.center)
-                        .padding()
                         .foregroundColor(Color("DarkGreen"))
                     
-                    Text("Track your miles.")
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(Color("DarkGreen"))
-                    
-                    Text("Grow your impact.")
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(Color("DarkGreen"))
-                    
+                    Image("logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                
                     
                     Text("🌿 Welcome to EcoMiles, an app that helps you measure your carbon footprint based on how you travel—empowering you to make greener choices, one mile at a time. 🌿")
                         .font(.body)
                         .multilineTextAlignment(.center)
-                        .padding()
                         .foregroundColor(Color("DarkGreen"))
+                        .padding()
                     
                     NavigationLink(destination: Score()) {
                         Text("Calculate Your Carbon Score")
@@ -67,6 +63,7 @@ struct ContentView: View
                 }
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
