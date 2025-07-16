@@ -1,18 +1,8 @@
-//
-//  Score.swift
-//  EcoMiles
-//
-//  Created by Scholar on 7/15/25.
-//
-
 import SwiftUI
 
-struct Score: View {
+struct Score: View{
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Score Page Placeholder")
     }
-}
-
-#Preview {
-    Score()
+    
 }
