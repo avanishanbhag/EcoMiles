@@ -18,7 +18,7 @@ struct FAQs: View {
                 
                 Group {
                                     FAQItem(question: "1. What is EcoMiles?",
-                                            answer: "EcoMiles is a carbon footprint tracker that helps you understand and reduce your environmental impact—starting with how you travel.")
+                                            answer: "EcoMiles is a carbon footprint tracker that helps you understand and reduce your environmental impact, starting with how you travel.")
                                     FAQItem(question: "2. How does EcoMiles calculate my carbon footprint?",
                                             answer: "EcoMiles uses data about your transportation choices (modes, distances, frequency) to estimate CO₂ emissions using industry-standard carbon coefficients.")
                                     FAQItem(question: "3. What types of transportation are tracked?",
