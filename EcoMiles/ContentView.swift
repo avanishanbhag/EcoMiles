@@ -20,6 +20,7 @@ struct ContentView: View {
 
                 Text("Grow your impact.")
                     .multilineTextAlignment(.center)
+                    .foregroundColor(Color("DarkGreen"))
                 
                 
                 Text("🌿 Welcome to EcoMiles, an app that helps you measure your carbon footprint based on how you travel—empowering you to make greener choices, one mile at a time. 🌿")
