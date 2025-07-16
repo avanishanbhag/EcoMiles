@@ -1,49 +1,40 @@
 import Foundation
-import CoreLocation
 import Combine
+import CoreLocation
 
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let manager = CLLocationManager()
-   
-    @Published var distance: Double = 0.0
-    private var lastLocation: CLLocation?
+class TransportViewModel: ObservableObject {
+    
+    @Published var selectedMode: String = "Car"
+    @Published var distanceKm: Double = 0.0
+    @Published var carbonScore: Double = 0.0
 
-    override init() {
-        super.init()
-        manager.delegate = self
-        manager.activityType = .fitness
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-    }
-   
-    func startTracking() {
-        distance = 0.0
-        lastLocation = nil
-        manager.startUpdatingLocation()
-    }
-   
-    func stopTracking() {
-        manager.stopUpdatingLocation()
-    }
-   
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let newLocation = locations.last else { return }
-       
-        if let last = lastLocation {
-            let delta = newLocation.distance(from: last)
-            // Filter out bad data (very large jumps)
-            if delta < 100 {
-                distance += delta
+    private var locationManager = LocationManager()
+    private var cancellables = Set<AnyCancellable>()
+
+    init() {
+        locationManager.$distance
+            .sink { [weak self] meters in
+                self?.distanceKm = meters / 1000.0
             }
-        }
-       
-        lastLocation = newLocation
+            .store(in: &cancellables)
     }
-   
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if manager.authorizationStatus == .denied {
-            print("Location access denied")
+
+    func startTracking() {
+        locationManager.startTracking()
+    }
+
+    func stopTracking() {
+        locationManager.stopTracking()
+    }
+
+    func emissionFactor(for mode: String) -> Double {
+        switch mode {
+        case "Car": return 0.121     // kg CO2 per km
+        case "Bus": return 0.089
+        case "Train": return 0.041
+        case "Plane": return 0.255
+        case "Walking", "Bicycle": return 0.0
+        default: return 0.121
         }
     }
 }
-

@@ -1,41 +1,37 @@
-//
-//  LocationManager.swift
-//  EcoMiles
-//
-//  Created by Scholar on 7/16/25.
-//
-
 import Foundation
+import CoreLocation
 import Combine
 
-class TransportViewModel: ObservableObject {
-    // Published values that update the UI
-    @Published var distanceKm: Double = 0.0
-    @Published var carbonScore: Double = 0.0
-   
-    private var cancellables = Set<AnyCancellable>()
-    private var locationManager = LocationManager()
-   
-    // Emission factor for car (0.121 kg CO₂/km)
-    private let emissionFactor = 0.121
-   
-    init() {
-        // Listen for location updates
-        locationManager.$distance
-            .sink { [weak self] meters in
-                guard let self = self else { return }
-                let km = meters / 1000.0
-                self.distanceKm = km
-                self.carbonScore = km * self.emissionFactor
-            }
-            .store(in: &cancellables)
+class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
+    private let manager = CLLocationManager()
+    @Published var distance: Double = 0.0
+
+    private var lastLocation: CLLocation?
+
+    override init() {
+        super.init()
+        manager.delegate = self
+        manager.activityType = .fitness
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
     }
-   
+
     func startTracking() {
-        locationManager.startTracking()
+        distance = 0.0
+        lastLocation = nil
+        manager.startUpdatingLocation()
     }
-   
+
     func stopTracking() {
-        locationManager.stopTracking()
+        manager.stopUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let newLocation = locations.last else { return }
+        if let last = lastLocation {
+            let delta = newLocation.distance(from: last)
+            distance += delta
+        }
+        lastLocation = newLocation
     }
 }
