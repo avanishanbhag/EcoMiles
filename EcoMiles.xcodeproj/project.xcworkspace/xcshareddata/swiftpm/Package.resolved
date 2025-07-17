@@ -1,0 +1,33 @@
+{
+  "originHash" : "acf26e10c165a1cbd9138d23d421d1567566497ba7d3519ef97e444132a3de21",
+  "pins" : [
+    {
+      "identity" : "libretranslate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wacumov/libretranslate.git",
+      "state" : {
+        "revision" : "16c4f108a589089dc5a247d5047bd216638c1f68",
+        "version" : "0.2.0"
+      }
+    },
+    {
+      "identity" : "swift-algorithms",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-algorithms.git",
+      "state" : {
+        "revision" : "87e50f483c54e6efd60e885f7f5aa946cee68023",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "swift-numerics",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-numerics.git",
+      "state" : {
+        "revision" : "e0ec0f5f3af6f3e4d5e7a19d2af26b481acb6ba8",
+        "version" : "1.0.3"
+      }
+    }
+  ],
+  "version" : 3
+}
