@@ -13,7 +13,8 @@ struct ContentView: View
             {
                 Color("Alabaster").ignoresSafeArea()
                 
-                VStack(spacing: 24) {
+                VStack(spacing: 24)
+                {
                     
                     Text("EcoMiles")
                         .font(.largeTitle)
