@@ -6,6 +6,7 @@
 // new thing for new commit
 
 import SwiftUI
+import Combine
 
 struct TranslatedText: View {
     let original: String
