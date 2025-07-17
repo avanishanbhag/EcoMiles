@@ -12,7 +12,8 @@ struct Tips: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Tips to Lower Your Carbon Footprint")
-                    .font(.title)
+                    .font(.custom(
+                        "brixton-sans-tc-regular", size: 36))
                     .fontWeight(.bold)
                     .padding(.bottom, 10)
 

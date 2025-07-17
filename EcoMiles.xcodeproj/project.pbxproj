@@ -10,10 +10,28 @@
 		BDA129842E26A56D0048C043 /* EcoMiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoMiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FB45B90C2E296B2C00405120 /* Exceptions for "EcoMiles" folder in "EcoMiles" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BDA129832E26A56D0048C043 /* EcoMiles */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BDA129862E26A56D0048C043 /* EcoMiles */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FB45B90C2E296B2C00405120 /* Exceptions for "EcoMiles" folder in "EcoMiles" target */,
+			);
 			path = EcoMiles;
+			sourceTree = "<group>";
+		};
+		FB45B90A2E296B0E00405120 /* Fonts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -34,6 +52,7 @@
 			children = (
 				BDA129862E26A56D0048C043 /* EcoMiles */,
 				BDA129852E26A56D0048C043 /* Products */,
+				FB45B90A2E296B0E00405120 /* Fonts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +81,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				BDA129862E26A56D0048C043 /* EcoMiles */,
+				FB45B90A2E296B0E00405120 /* Fonts */,
 			);
 			name = EcoMiles;
 			packageProductDependencies = (
@@ -253,6 +273,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EcoMiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,6 +301,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EcoMiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

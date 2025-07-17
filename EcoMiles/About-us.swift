@@ -24,7 +24,8 @@ struct About_us: View
                         VStack
                         {
                             Text("About Us")
-                                .font(.largeTitle)
+                                .font(.custom(
+                                    "brixton-sans-tc-regular", size: 36))
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(Color("DarkGreen"))
