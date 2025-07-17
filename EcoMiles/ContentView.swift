@@ -72,15 +72,23 @@ struct ContentView: View
 struct MenuView: View {
     var body: some View {
         NavigationView {
-            List {
-                NavigationLink("Welcome", destination: ContentView())
-                NavigationLink("Score", destination: Score())
-                NavigationLink("Forest", destination: Forest())
-                NavigationLink("Tips", destination: Tips())
-                NavigationLink("FAQs", destination: FAQs())
-                NavigationLink("About Us", destination: About_us())
+            ZStack {
+                Color("Alabaster")
+                    .ignoresSafeArea()
+                List {
+                    NavigationLink("Welcome", destination: ContentView())
+                    NavigationLink("Score", destination: Score())
+                    NavigationLink("Forest", destination: Forest())
+                    NavigationLink("Tips", destination: Tips())
+                    NavigationLink("FAQs", destination: FAQs())
+                    NavigationLink("About Us", destination: About_us())
+                }
+                .listRowBackground(Color("Alabaster"))
+                .foregroundColor(Color("FernGreen"))
+                .scrollContentBackground(.hidden)
+                .background(Color("Olivine"))
+                .navigationTitle("Menu")
             }
-            .navigationTitle("Menu")
         }
     }
 }
