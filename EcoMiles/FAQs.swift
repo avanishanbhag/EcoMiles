@@ -1,10 +1,17 @@
+//
+//  FAQs.swift
+//  EcoMiles
+//
+//  Created by Scholar on 7/15/25.
+//
+
 import SwiftUI
 
 struct FAQs: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text("Frequently Asked Questions")
+                TranslatedText(original: "Frequently Asked Questions")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.bottom, 10)
@@ -21,7 +28,7 @@ struct FAQs: View {
                                     FAQItem(question: "5. What is the carbon score and how does it work?",
                                             answer: "Your forest grows the more sustainable your travel becomes. The greener your habits, the more lush and healthy your digital forest appears.")
                                     FAQItem(question: "6. Why didn’t my forest grow after I walked or biked?",
-                                            answer: "It did! Walking or biking have a near-zero carbon footprint, and those actions earn you the most eco-points. Forest changes may update daily depending on your input.")
+                                            answer: "It did! Walking or biking have a near-zero carbon footprint, and those actions help your forest grow the most. Forest changes may update daily depending on your input.")
                                     FAQItem(question: "7. How often should I update my transportation data?",
                                             answer: "You can input your trips daily. For automatic tracking, make sure location permissions are enabled.")
                                     FAQItem(question: "8. What is a carbon footprint?",
@@ -53,4 +60,3 @@ struct FAQs: View {
 #Preview {
     FAQs()
 }
-

@@ -1,9 +1,13 @@
 import SwiftUI
 
 struct ContentView: View
+
 {
     @State private var showMenu = false
+    @StateObject private var manager = TranslationManager.shared
 
+    
+    
     var body: some View
     {
         NavigationView
@@ -27,7 +31,7 @@ struct ContentView: View
                         .aspectRatio(contentMode: .fit)
                 
                     
-                    Text("🌿 Welcome to EcoMiles, an app that helps you measure your carbon footprint based on how you travel—empowering you to make greener choices, one mile at a time. 🌿")
+                    TranslatedText(original: "🌿 Welcome to EcoMiles, an app that helps you measure your carbon footprint based on how you travel—empowering you to make greener choices, one mile at a time. 🌿")
                         .font(.body)
                         .multilineTextAlignment(.center)
                         .foregroundColor(Color("DarkGreen"))
@@ -47,7 +51,6 @@ struct ContentView: View
                     Spacer()
                 }
                 .padding()
-                .navigationTitle("Welcome")
                 .foregroundColor(Color("DarkGreen"))
                 .toolbar {
                     
@@ -55,13 +58,38 @@ struct ContentView: View
                         Button(action: { showMenu = true }) {
                             Image(systemName: "line.3.horizontal")
                                 .imageScale(.large)
-                        }
-                    }
-                }
+                                                        }
+                                                    }
+
+                                                    ToolbarItem(placement: .navigationBarTrailing) {
+                                                        Menu {
+                                                            Button("English") {
+                                                                manager.selectedLanguage = "en"
+                                                            }
+                                                            Button("Spanish") {
+                                                                manager.selectedLanguage = "es"
+                                                            }
+                                                            Button("French") {
+                                                                manager.selectedLanguage = "fr"
+                                                            }
+                                                            Button("Hindi") {
+                                                                manager.selectedLanguage = "hi"
+                                                            }
+                                                            Button("Chinese") {
+                                                                manager.selectedLanguage = "zh"
+                                                            }
+                                                        } label: {
+                                                            Image(systemName: "globe")
+                                                        }
+                                                    }
+                                                }
                 
                 .sheet(isPresented: $showMenu) {
                     MenuView()
                 }
+                .onAppear {
+                    }
+                
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
