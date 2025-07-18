@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BDA12A7B2E2977AB0048C043 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 58CD5D4E2E296E4F00795CF1 /* Algorithms */; };
+		BDA12A7C2E2977AB0048C043 /* LibreTranslate in Frameworks */ = {isa = PBXBuildFile; productRef = 58CD5D512E296F2900795CF1 /* LibreTranslate */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		BDA129842E26A56D0048C043 /* EcoMiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcoMiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,8 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58CD5D522E296F2900795CF1 /* LibreTranslate in Frameworks */,
-				58CD5D4F2E296E4F00795CF1 /* Algorithms in Frameworks */,
+				BDA12A7C2E2977AB0048C043 /* LibreTranslate in Frameworks */,
+				BDA12A7B2E2977AB0048C043 /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

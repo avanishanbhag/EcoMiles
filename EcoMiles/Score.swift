@@ -2,6 +2,7 @@ import SwiftUI
 
 struct Score: View {
     @StateObject private var viewModel = TransportViewModel()
+    @StateObject private var forestVM = ForestViewModel()
 
     @State private var useManualInput = true
     @State private var manualDistance: Double = 0.0
@@ -26,7 +27,6 @@ struct Score: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal)
 
-              
                 if useManualInput {
                     VStack(spacing: 10) {
                         Text("Enter distance (in km):")
@@ -66,7 +66,6 @@ struct Score: View {
                     }
                 }
 
-      
                 VStack(spacing: 10) {
                     Text("Select transport mode:")
                         .font(.subheadline)
@@ -81,11 +80,12 @@ struct Score: View {
                     .padding(.horizontal)
                 }
 
-           
                 Button("Calculate Carbon Score") {
                     let distance = useManualInput ? manualDistance : viewModel.distanceKm
                     let factor = viewModel.emissionFactor(for: viewModel.selectedMode)
-                    viewModel.carbonScore = distance * factor
+                    let score = distance * factor
+                    viewModel.carbonScore = score
+                    forestVM.addLog(score: score) // ✅ Log today's score
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -94,7 +94,6 @@ struct Score: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
 
-               
                 VStack(spacing: 8) {
                     Text("\(viewModel.carbonScore, specifier: "%.2f") kg CO₂")
                         .font(.system(size: 48, weight: .bold))
@@ -105,7 +104,6 @@ struct Score: View {
                         .foregroundColor(scoreColor)
                 }
 
-              
                 NavigationLink(destination: Forest(score: viewModel.carbonScore)) {
                     Text("See Your Forest")
                         .foregroundColor(.white)
@@ -123,7 +121,6 @@ struct Score: View {
         }
     }
 
- 
     private var scoreColor: Color {
         switch viewModel.carbonScore {
         case ..<1.0: return Color("FernGreen")
@@ -140,3 +137,5 @@ struct Score: View {
         }
     }
 }
+
+
