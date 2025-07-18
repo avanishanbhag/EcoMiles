@@ -10,7 +10,7 @@ This app will explore is how people's chosen methods of transportation affect th
 
 4. How does EcoMiles calculate my carbon footprint? EcoMiles uses data about your transportation choices (modes, distances, frequency) to estimate CO₂ emissions using industry-standard carbon coefficients.
   
-5. What types of transportation are tracked? : "We currently support car travel, biking, walking, and air-travel.
+5. What types of transportation are tracked? : We currently support car travel, biking, walking, and air-travel.
 
 6. Is my data private?: Yes! Your data is securely stored and never shared without your permission. You can delete your data at any time.
 
